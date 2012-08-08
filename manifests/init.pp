@@ -1,4 +1,6 @@
 class interfaces {
+	include concat::setup
+
 	concat{'/etc/network/interfaces':
 		owner => root,
 		group => root,
