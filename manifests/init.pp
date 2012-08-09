@@ -5,7 +5,6 @@ class interfaces {
 		owner => root,
 		group => root,
 		mode => 644,
-		notify => Service['networking'],
 	}
 
 	concat::fragment{'interfaces_header':
