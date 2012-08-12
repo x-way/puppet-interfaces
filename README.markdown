@@ -3,6 +3,8 @@ What is it?
 
 A Puppet module to manage /etc/network/interfaces.
 
+[![Build Status](https://secure.travis-ci.org/x-way/puppet-interfaces.png)](http://travis-ci.org/x-way/puppet-interfaces)
+
 Usage:
 ------
 
