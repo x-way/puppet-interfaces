@@ -1,4 +1,8 @@
 define interfaces::iface ( $family, $method, $options=[], $auto=0, $ifname='UNSET' ) {
+  if ! ($family in [inet, inet6, ipx]) {
+    fail('family parameter must be one of inet, inet6 or ipx')
+  }
+
   $ifname_real = $ifname ? {
     'UNSET' => $name,
     default => $ifname,
