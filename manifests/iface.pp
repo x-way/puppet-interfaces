@@ -1,6 +1,6 @@
 define interfaces::iface ( $family, $method, $options=[], $auto=0, $ifname=$name ) {
   if $auto == 1 {
-    interfaces::auto { "${ifname}": }
+    interfaces::auto { $ifname: }
   }
 
   $str = "iface ${ifname} ${family} ${method}\n	<%= options.join('\n	') %>\n\n"
