@@ -1,6 +1,23 @@
 define interfaces::iface ( $family, $method, $options=[], $auto=0, $ifname='UNSET' ) {
-  if ! ($family in [inet, inet6, ipx]) {
-    fail('family parameter must be one of inet, inet6 or ipx')
+  case $family {
+    inet: {
+      if ! ($method in [loopback, static, manual, dhcp, bootp, ppp, wvdial]) {
+        fail('$method parameter must be one of loopback, static, manual, dhcp, bootp, ppp or wvdial for $family inet')
+      }
+    }
+    inet6: {
+      if ! ($method in [loopback, static, manual, v4tunnel]) {
+        fail('$method parameter must be one of loopback, static, manual or v4tunnel for $family inet6')
+      }
+    }
+    ipx: {
+      if ! ($method in [static, dynamic]) {
+        fail('$method parameter must be static or dynamic for $family ipx')
+      }
+    }
+    default: {
+      fail('$family parameter must be one of inet, inet6 or ipx')
+    }
   }
 
   $ifname_real = $ifname ? {
