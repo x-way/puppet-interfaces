@@ -1,5 +1,5 @@
-define interfaces::iface ( $family, $method, $options=[], $auto=0, $ifname="" ) {
-  if $ifname == "" {
+define interfaces::iface ( $family, $method, $options=[], $auto=0, $ifname='' ) {
+  if $ifname == '' {
     $_ifname = $name
   } else {
     $_ifname = $ifname
