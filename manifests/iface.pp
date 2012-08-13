@@ -31,6 +31,6 @@ define interfaces::iface ( $family, $method, $options=[], $auto=0, $ifname='UNSE
 
   concat::fragment{"interfaces::iface_${name}":
     target  => '/etc/network/interfaces',
-    content => inline_template("iface <%= ifname_real -%> <%= family -%> <%= method -%>\n\t<%= options.join('\n\t') -%>\n\n"),
+    content => inline_template("iface <%= @ifname_real %> <%= @family %> <%= @method %>\n\t<%= @options.join('\n\t') %>\n\n"),
   }
 }
