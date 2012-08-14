@@ -7,6 +7,6 @@ describe 'interfaces::iface' do
   it {
     should contain_interfaces__auto('lo')
     should contain_concat__fragment('interfaces::iface_lo').with_target('/etc/network/interfaces')
-    should contain_concat__fragment('interfaces::iface_lo').with_content('iface lo inet loopback\n\t\n\n')
+    should contain_concat__fragment('interfaces::iface_lo').with_content("iface lo inet loopback\n\t\n\n")
   }
 end
