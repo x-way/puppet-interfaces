@@ -1,4 +1,4 @@
-define interfaces::iface ( $family, $method, $options=[], $auto=0, $ifname='UNSET' ) {
+define interfaces::iface ( $family, $method, $options=[], $auto=0, $allow_hotplug=0, $ifname='UNSET' ) {
   case $family {
     inet: {
       if ! ($method in [loopback, static, manual, dhcp, bootp, ppp, wvdial]) {
@@ -27,6 +27,10 @@ define interfaces::iface ( $family, $method, $options=[], $auto=0, $ifname='UNSE
 
   if $auto == 1 {
     interfaces::auto { $ifname_real: }
+  }
+
+  if $allow_hotplug == 1 {
+    interfaces::allow { $ifname_real: subsystem => 'hotplug' }
   }
 
   concat::fragment{"interfaces::iface_${name}":
