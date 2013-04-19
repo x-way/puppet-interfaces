@@ -1,0 +1,5 @@
+fixtures:
+  repositories:
+    concat: git://github.com/x-way/puppet-concat.git
+  symlinks:
+    interfaces: "#{source_dir}"

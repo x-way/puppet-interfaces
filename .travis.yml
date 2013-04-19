@@ -1,3 +1,4 @@
+language: ruby
 rvm:
   - 1.8.7
   - 1.9.3
@@ -8,5 +9,6 @@ env:
   - PUPPET_VERSION=2.6.2
   - PUPPET_VERSION=2.7.14
   - PUPPET_VERSION=3.1.1
-before_script:
-  - 'git clone git://github.com/x-way/puppet-concat.git spec/fixtures/modules/concat'
+script:
+  - "rake lint"
+  - "rake spec"
