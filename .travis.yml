@@ -12,6 +12,7 @@ env:
 script:
   - "rake lint"
   - "rake --trace spec"
+  - "rake coveralls:push"
 matrix:
   exclude:
     - rvm: 1.9.3
