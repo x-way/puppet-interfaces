@@ -4,6 +4,7 @@ What is it?
 A Puppet module to manage /etc/network/interfaces.
 
 [![Build Status](https://secure.travis-ci.org/x-way/puppet-interfaces.png)](http://travis-ci.org/x-way/puppet-interfaces)
+[![Coverage Status](https://coveralls.io/repos/x-way/puppet-interfaces/badge.png)](https://coveralls.io/r/x-way/puppet-interfaces)
 
 Usage:
 ------

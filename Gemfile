@@ -7,3 +7,4 @@ gem 'puppet-lint'
 gem 'rspec-puppet'
 gem 'puppet', puppetversion
 gem 'puppetlabs_spec_helper', '>= 0.1.0'
+gem 'coveralls', require: false
