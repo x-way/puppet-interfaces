@@ -7,7 +7,7 @@ notifications:
     - x-way@waterwave.ch
 env:
   - PUPPET_VERSION=2.6.2
-  - PUPPET_VERSION=2.7.18
+  - PUPPET_VERSION=2.7.23
   - PUPPET_VERSION=3.1.1
 script:
   - "rake lint"
