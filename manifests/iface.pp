@@ -1,4 +1,4 @@
-define interfaces::iface ( $family, $method, $options=[], $auto=0, $allow_hotplug=0, $ifname='UNSET' ) {
+define interfaces::iface ( $family, $method, $options=[], $auto=0, $allow_hotplug=0, $ifname='UNSET', $order='UNSET' ) {
   case $family {
     inet: {
       if ! ($method in [loopback, static, manual, dhcp, bootp, ppp, wvdial]) {
@@ -33,8 +33,17 @@ define interfaces::iface ( $family, $method, $options=[], $auto=0, $allow_hotplu
     interfaces::allow { $ifname_real: subsystem => 'hotplug' }
   }
 
+  $order_real = $order ? {
+    'UNSET' => $ifname_real ? {
+      'lo' =>    04,
+      default => 05,
+    },
+    default => $order,
+  }
+
   concat::fragment{"interfaces::iface_${name}":
     target  => '/etc/network/interfaces',
     content => inline_template("iface <%= @ifname_real %> <%= @family %> <%= @method %>\n\t<%= @options.join('\n\t') %>\n\n"),
+    order   => $order_real,
   }
 }
