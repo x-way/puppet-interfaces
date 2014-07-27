@@ -6,8 +6,8 @@ define interfaces::iface ( $family, $method, $options=[], $auto=0, $allow_hotplu
       }
     }
     inet6: {
-      if ! ($method in [loopback, static, manual, v4tunnel]) {
-        fail('method parameter must be one of loopback, static, manual or v4tunnel for family inet6')
+      if ! ($method in [auto, loopback, static, manual, dhcp, v4tunnel, 6to4]) {
+        fail('method parameter must be one of auto, loopback, static, manual, dhcp, v4tunnel or 6to4 for family inet6')
       }
     }
     ipx: {
