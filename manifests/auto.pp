@@ -1,8 +1,8 @@
 define interfaces::auto ( $order='UNSET' ) {
   $order_real = $order ? {
     'UNSET' => $name ? {
-      'lo'    => 06,
-      default => 07,
+      'lo'    => 02,
+      default => 03,
     },
     default => $order
   }

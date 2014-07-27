@@ -1,6 +1,6 @@
 define interfaces::allow ( $subsystem, $order='UNSET' ) {
   $order_real = $order ? {
-    'UNSET' => 02,
+    'UNSET' => 04,
     default => $order,
   }
   concat::fragment{"interfaces::allow-${subsystem}_${name}":

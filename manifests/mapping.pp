@@ -1,6 +1,6 @@
 define interfaces::mapping ( $script, $maps, $order='UNSET' ) {
   $order_real = $order ? {
-    'UNSET' => 03,
+    'UNSET' => 05,
     default => $order,
   }
   concat::fragment{"interfaces::mapping_${name}":

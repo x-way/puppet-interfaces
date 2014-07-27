@@ -35,8 +35,8 @@ define interfaces::iface ( $family, $method, $options=[], $auto=0, $allow_hotplu
 
   $order_real = $order ? {
     'UNSET' => $ifname_real ? {
-      'lo' =>    04,
-      default => 05,
+      'lo' =>    06,
+      default => 07,
     },
     default => $order,
   }
