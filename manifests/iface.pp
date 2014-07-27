@@ -1,8 +1,8 @@
 define interfaces::iface ( $family, $method, $options=[], $auto=0, $allow_hotplug=0, $ifname='UNSET', $order='UNSET' ) {
   case $family {
     inet: {
-      if ! ($method in [loopback, static, manual, dhcp, bootp, ppp, wvdial]) {
-        fail('method parameter must be one of loopback, static, manual, dhcp, bootp, ppp or wvdial for family inet')
+      if ! ($method in [loopback, static, manual, dhcp, bootp, tunnel, ppp, wvdial, ipv4ll]) {
+        fail('method parameter must be one of loopback, static, manual, dhcp, bootp, tunnel, ppp, wvdial or ipv4ll for family inet')
       }
     }
     inet6: {

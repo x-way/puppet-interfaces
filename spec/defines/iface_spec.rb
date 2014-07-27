@@ -136,6 +136,6 @@ describe 'interfaces::iface' do
   it {
     expect {
       should contain_concat__fragment('interfaces::iface_eth0').with_target('/etc/network/interfaces')
-    }.to raise_error(Puppet::Error, /method parameter must be one of loopback, static, manual, dhcp, bootp, ppp or wvdial for family inet/)
+    }.to raise_error(Puppet::Error, /method parameter must be one of loopback, static, manual, dhcp, bootp, tunnel, ppp, wvdial or ipv4ll for family inet/)
   }
 end
